@@ -1,4 +1,5 @@
-﻿using Unity.FPS.Game;
+﻿using System.Collections;
+using Unity.FPS.Game;
 using UnityEngine;
 using UnityEngine.Events;
 
@@ -214,6 +215,8 @@ namespace Unity.FPS.Gameplay
             UpdateCharacterHeight(false);
 
             HandleCharacterMovement();
+
+            QuickTurn();
         }
 
         void OnDie()
@@ -472,6 +475,31 @@ namespace Unity.FPS.Gameplay
 
             IsCrouching = crouched;
             return true;
+        }
+
+        public void QuickTurn()
+        {
+            Debug.Log(transform.localRotation);
+            if (Input.GetKeyDown(KeyCode.Q))
+            {
+                StartCoroutine(QuickTurnRoutine());
+            }
+        }
+
+        IEnumerator QuickTurnRoutine()
+        {
+            float elapsedTime = 0;
+            float waitTime = 0.2f;
+            Quaternion start = transform.rotation;
+            Quaternion end = Quaternion.LookRotation(-transform.forward);
+            while (elapsedTime < waitTime)
+            {
+                transform.rotation = Quaternion.Lerp(start, end, (elapsedTime / waitTime));
+                elapsedTime += Time.deltaTime;
+                yield return null;
+            }
+            transform.rotation = end;
+            yield return null;
         }
     }
 }
