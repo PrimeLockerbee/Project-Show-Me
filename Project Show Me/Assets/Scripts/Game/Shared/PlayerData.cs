@@ -35,6 +35,8 @@ namespace Unity.FPS.Game
         void Update()
         {
             i_timePlayed += Time.deltaTime;
+
+            Debug.Log(i_timePlayed);
         }
     }
 }

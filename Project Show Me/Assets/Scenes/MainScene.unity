@@ -1255,7 +1255,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2729281214152228921}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 5c60f63fe02113a449a75d1e1b35a8cf, type: 3}
   m_Name: 
@@ -1272,7 +1272,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2729281214152228921}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 0f78d479eb8d9d2499eccd11859f12cb, type: 3}
   m_Name: 
@@ -1280,22 +1280,22 @@ MonoBehaviour:
   SlowTimeScale: 0.5
   SlowTimeClip: {fileID: 8300000, guid: 3264b135b94635f42a09d672b19cae85, type: 3}
   SpeedupTimeClip: {fileID: 8300000, guid: 8a4a5bd0b5270024ca91ab9d88bce279, type: 3}
+  canSlowTime: 1
   audioSource: {fileID: 2729281214152228924}
   ForceTimeScale: 0
---- !u!114 &2729281214152228946
+--- !u!114 &2729281214152228956
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2729281214152228921}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: c97f336286c92994f98a2d6b2668d10a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  go_Player: {fileID: 0}
-  t_target: {fileID: 0}
+  i_gotHitTotal: 0
   i_gotHitFront: 0
   i_gotHitBack: 0
   i_timePlayed: 0

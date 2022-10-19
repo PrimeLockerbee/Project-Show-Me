@@ -2,67 +2,58 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class TimeSlowOnHit : MonoBehaviour
+namespace Unity.FPS.Gameplay
 {
-    // Timescale to slow down to if slow down key is pressed
-    [Tooltip("Timescale to slow down to if slow down key is pressed")]
-    public float SlowTimeScale = 0.5f;
 
-    [Tooltip("(Optional) Play this clip when starting to slow time")]
-    public AudioClip SlowTimeClip;
-
-    [Tooltip("(Optional) Play this clip when ending slow mo")]
-    public AudioClip SpeedupTimeClip;
-
-    bool canSlowTime = true;
-
-    float originalFixedDelta;
-
-    public AudioSource audioSource;
-
-    public bool ForceTimeScale = false;
-
-    void Start()
+    public class TimeSlowOnHit : MonoBehaviour
     {
-        originalFixedDelta = Time.fixedDeltaTime;
-    }
+        // Timescale to slow down to if slow down key is pressed
+        [Tooltip("Timescale to slow down to if slow down key is pressed")]
+        public float SlowTimeScale = 0.5f;
 
-    private void OnCollisionEnter(Collision collision)
-    {
-        if(collision.collider.tag == "EnemyBullet" && canSlowTime == true)
+        [Tooltip("(Optional) Play this clip when starting to slow time")]
+        public AudioClip SlowTimeClip;
+
+        [Tooltip("(Optional) Play this clip when ending slow mo")]
+        public AudioClip SpeedupTimeClip;
+
+        public bool canSlowTime = true;
+
+        float originalFixedDelta;
+
+        public AudioSource audioSource;
+
+        public bool ForceTimeScale = false;
+
+        void Start()
         {
-            SlowTime();
-            canSlowTime = false;
+            originalFixedDelta = Time.fixedDeltaTime;
+        }
+
+        public void SlowTime()
+        {
+            // Play Slow time clip
+            audioSource.clip = SlowTimeClip;
+            audioSource.Play();
+
+            Time.timeScale = SlowTimeScale;
+            Time.fixedDeltaTime = originalFixedDelta * Time.timeScale;
+
             StartCoroutine(resumeTimeRoutine());
         }
-    }
 
-    private void OnTriggerEnter(Collider other)
-    {
-        
-    }
+        public IEnumerator resumeTimeRoutine()
+        {
+            // Wait for a second before resuming time again
+            yield return new WaitForSeconds(3f);
 
-    public void SlowTime()
-    {
-        // Play Slow time clip
-        audioSource.clip = SlowTimeClip;
-        audioSource.Play();
+            audioSource.clip = SpeedupTimeClip;
+            audioSource.Play();
 
-        Time.timeScale = SlowTimeScale;
-        Time.fixedDeltaTime = originalFixedDelta * Time.timeScale;
-    }
+            Time.timeScale = 1;
+            Time.fixedDeltaTime = originalFixedDelta;
 
-    IEnumerator resumeTimeRoutine()
-    {
-        // Wait for a split second before resuming time again
-        yield return new WaitForSeconds(2.5f);
-
-        audioSource.clip = SpeedupTimeClip;
-        audioSource.Play();
-
-        Time.timeScale = 1;
-        Time.fixedDeltaTime = originalFixedDelta;
-
-        canSlowTime = true;
+            canSlowTime = true;
+        }
     }
 }
