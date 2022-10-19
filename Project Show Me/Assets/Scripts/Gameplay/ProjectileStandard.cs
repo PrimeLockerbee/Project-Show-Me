@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
-using Unity.FPS.Game;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using Unity.FPS.Game; 
 
 namespace Unity.FPS.Gameplay
 {
@@ -65,6 +66,13 @@ namespace Unity.FPS.Gameplay
         List<Collider> m_IgnoredColliders;
 
         const QueryTriggerInteraction k_TriggerInteraction = QueryTriggerInteraction.Collide;
+
+        public PlayerData playerData;
+
+        private void Awake()
+        {
+            playerData = GameObject.Find("Player").GetComponent<PlayerData>();
+        }
 
         void OnEnable()
         {
@@ -236,6 +244,12 @@ namespace Unity.FPS.Gameplay
                 if (damageable)
                 {
                     damageable.InflictDamage(Damage, false, m_ProjectileBase.Owner);
+                }
+                if (damageable && m_ProjectileBase.Owner.tag == "Enemy" && this.gameObject.tag == "EnemyBullet")
+                {
+                    Debug.Log("ENEMY BULLET HIT PLAYER");
+                    Debug.Log("Total hits: " + playerData.i_gotHitTotal);
+                    playerData.i_gotHitTotal++;
                 }
             }
 
