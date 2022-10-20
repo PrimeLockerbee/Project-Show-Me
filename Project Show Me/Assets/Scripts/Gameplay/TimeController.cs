@@ -14,9 +14,9 @@ public class TimeController : MonoBehaviour
     [Tooltip("(Optional) Play this clip when ending slow mo")]
     public AudioClip SpeedupTimeClip;
 
-    bool canSlowTime = true;
+    public bool canSlowTime = true;
 
-    float originalFixedDelta;
+    public float originalFixedDelta;
 
     public AudioSource audioSource;
 
@@ -48,7 +48,7 @@ public class TimeController : MonoBehaviour
         Time.fixedDeltaTime = originalFixedDelta * Time.timeScale;     
     }
 
-    IEnumerator resumeTimeRoutine()
+    public IEnumerator resumeTimeRoutine()
     {
         // Wait for a split second before resuming time again
         yield return new WaitForSeconds(5f);

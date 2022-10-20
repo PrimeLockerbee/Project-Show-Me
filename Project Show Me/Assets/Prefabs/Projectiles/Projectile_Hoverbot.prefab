@@ -58,13 +58,16 @@ MonoBehaviour:
   HittableLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  Speed: 100
+  Speed: 25
   GravityDownAcceleration: 0
   TrajectoryCorrectionDistance: 5
   InheritWeaponVelocity: 0
-  Damage: 10
+  Damage: 2
   AreaOfDamage: {fileID: 0}
   RadiusColor: {r: 0, g: 1, b: 1, a: 1}
+  playerData: {fileID: 0}
+  timeSlowHit: {fileID: 0}
+  timeController: {fileID: 0}
 --- !u!136 &1547979079266816122
 CapsuleCollider:
   m_ObjectHideFlags: 0

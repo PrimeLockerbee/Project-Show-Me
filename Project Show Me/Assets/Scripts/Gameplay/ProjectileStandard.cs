@@ -69,11 +69,13 @@ namespace Unity.FPS.Gameplay
 
         public PlayerData playerData;
         public TimeSlowOnHit timeSlowHit;
+        public TimeController timeController;
 
         private void Awake()
         {
             playerData = GameObject.Find("Player").GetComponent<PlayerData>();
             timeSlowHit = GameObject.Find("Player").GetComponent<TimeSlowOnHit>();
+            timeController = GameObject.Find("Player").GetComponent<TimeController>();
         }
 
         void OnEnable()
@@ -253,11 +255,11 @@ namespace Unity.FPS.Gameplay
                     playerData.i_gotHitTotal++;
                     Debug.Log("Total hits: " + playerData.i_gotHitTotal);
 
-                    if (timeSlowHit.canSlowTime == true)
-                    {
-                        timeSlowHit.SlowTime();
-                        timeSlowHit.canSlowTime = false;
-                    }
+                    //if (timeSlowHit.canSlowTime == true)
+                    //{
+                    //    timeSlowHit.SlowTime();
+                    //    timeSlowHit.canSlowTime = false;
+                    //}
                 }
             }
 
