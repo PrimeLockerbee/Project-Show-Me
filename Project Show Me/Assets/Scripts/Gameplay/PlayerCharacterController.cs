@@ -479,11 +479,8 @@ namespace Unity.FPS.Gameplay
 
         public void QuickTurn()
         {
-            Debug.Log(transform.localRotation);
             if (Input.GetKeyDown(KeyCode.Q))
-            {
                 StartCoroutine(QuickTurnRoutine());
-            }
         }
 
         IEnumerator QuickTurnRoutine()
