@@ -25,9 +25,8 @@ namespace Unity.FPS.Game
         [Tooltip("Sound played on win")] public AudioClip VictorySound;
 
         [Header("Lose")] [Tooltip("This string has to be the name of the scene you want to load when losing")]
-        public string LoseSceneName = "LoseScene";
-
-
+        public string LoseSceneName = "LoseScene"; 
+        
         public bool GameIsEnding { get; private set; }
 
         float m_TimeLoadEndGameScene;

@@ -1,6 +1,7 @@
-﻿using System.Collections.Generic;
-using Unity.FPS.Game;
+﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using Unity.FPS.Game; 
 
 namespace Unity.FPS.Gameplay
 {
@@ -65,6 +66,17 @@ namespace Unity.FPS.Gameplay
         List<Collider> m_IgnoredColliders;
 
         const QueryTriggerInteraction k_TriggerInteraction = QueryTriggerInteraction.Collide;
+
+        public PlayerData playerData;
+        public TimeSlowOnHit timeSlowHit;
+        public TimeController timeController;
+
+        private void Awake()
+        {
+            playerData = GameObject.Find("Player").GetComponent<PlayerData>();
+            timeSlowHit = GameObject.Find("Player").GetComponent<TimeSlowOnHit>();
+            timeController = GameObject.Find("Player").GetComponent<TimeController>();
+        }
 
         void OnEnable()
         {
@@ -236,6 +248,18 @@ namespace Unity.FPS.Gameplay
                 if (damageable)
                 {
                     damageable.InflictDamage(Damage, false, m_ProjectileBase.Owner);
+                }
+                if (damageable && m_ProjectileBase.Owner.tag == "Enemy" && this.gameObject.tag == "EnemyBullet")
+                {
+                    Debug.Log("ENEMY BULLET HIT PLAYER");
+                    playerData.i_gotHitTotal++;
+                    Debug.Log("Total hits: " + playerData.i_gotHitTotal);
+
+                    //if (timeSlowHit.canSlowTime == true)
+                    //{
+                    //    timeSlowHit.SlowTime();
+                    //    timeSlowHit.canSlowTime = false;
+                    //}
                 }
             }
 
