@@ -29,7 +29,7 @@ public class TimeController : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyUp(KeyCode.O) && canSlowTime == true)
+        if(Input.GetKeyUp(KeyCode.E) && canSlowTime == true)
         {
             SlowTime();
             canSlowTime = false;
