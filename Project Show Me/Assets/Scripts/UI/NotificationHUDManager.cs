@@ -15,12 +15,10 @@ namespace Unity.FPS.UI
         void Awake()
         {
             PlayerWeaponsManager playerWeaponsManager = FindObjectOfType<PlayerWeaponsManager>();
-            DebugUtility.HandleErrorIfNullFindObject<PlayerWeaponsManager, NotificationHUDManager>(playerWeaponsManager,
-                this);
+
             playerWeaponsManager.OnAddedWeapon += OnPickupWeapon;
 
             Jetpack jetpack = FindObjectOfType<Jetpack>();
-            DebugUtility.HandleErrorIfNullFindObject<Jetpack, NotificationHUDManager>(jetpack, this);
 
             EventManager.AddListener<ObjectiveUpdateEvent>(OnObjectiveUpdateEvent);
         }

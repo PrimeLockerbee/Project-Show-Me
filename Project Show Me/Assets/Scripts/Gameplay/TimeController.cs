@@ -22,6 +22,10 @@ public class TimeController : MonoBehaviour
 
     public bool ForceTimeScale = false;
 
+    public bool timeSLowCooldownBool = false;
+
+    public float timeSlowCooldown;
+
     void Start()
     {
         originalFixedDelta = Time.fixedDeltaTime;
@@ -29,12 +33,28 @@ public class TimeController : MonoBehaviour
 
     void Update()
     {
-        if(Input.GetKeyUp(KeyCode.O) && canSlowTime == true)
+        if(Input.GetKeyUp(KeyCode.O) && canSlowTime == true && timeSLowCooldownBool == false)
         {
             SlowTime();
             canSlowTime = false;
             StartCoroutine(resumeTimeRoutine());
+            timeSlowCooldown = 17f;
+            timeSLowCooldownBool = true;
         }
+
+        if(timeSLowCooldownBool == true)
+        {
+            timeSlowCooldown -= Time.deltaTime;
+            if(timeSlowCooldown <=0)
+            {
+                timeSLowCooldownBool = false;
+                timeSlowCooldown = 0;
+            }
+        }
+
+        Debug.Log(timeSlowCooldown);
+        Debug.Log(canSlowTime);
+        Debug.Log(timeSLowCooldownBool);
     }
 
 
@@ -60,5 +80,6 @@ public class TimeController : MonoBehaviour
         Time.fixedDeltaTime = originalFixedDelta;
 
         canSlowTime = true;
+
     }
 }

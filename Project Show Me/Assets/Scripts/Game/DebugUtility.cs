@@ -17,18 +17,6 @@ namespace Unity.FPS.Game
 #endif
         }
 
-        public static void HandleErrorIfNullFindObject<TO, TS>(UnityEngine.Object obj, Component source)
-        {
-#if UNITY_EDITOR
-            if (obj == null)
-            {
-                Debug.LogError("Error: Component of type " + typeof(TS) + " on GameObject " + source.gameObject.name +
-                               " expected to find an object of type " + typeof(TO) +
-                               " in the scene, but none were found.");
-            }
-#endif
-        }
-
         public static void HandleErrorIfNoComponentFound<TO, TS>(int count, Component source, GameObject onObject)
         {
 #if UNITY_EDITOR

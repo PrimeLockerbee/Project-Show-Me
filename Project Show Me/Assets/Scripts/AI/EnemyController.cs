@@ -121,10 +121,8 @@ namespace Unity.FPS.AI
         void Start()
         {
             m_EnemyManager = FindObjectOfType<EnemyManager>();
-            DebugUtility.HandleErrorIfNullFindObject<EnemyManager, EnemyController>(m_EnemyManager, this);
 
             m_ActorsManager = FindObjectOfType<ActorsManager>();
-            DebugUtility.HandleErrorIfNullFindObject<ActorsManager, EnemyController>(m_ActorsManager, this);
 
             m_EnemyManager.RegisterEnemy(this);
 
@@ -138,7 +136,6 @@ namespace Unity.FPS.AI
             m_SelfColliders = GetComponentsInChildren<Collider>();
 
             m_GameFlowManager = FindObjectOfType<GameFlowManager>();
-            DebugUtility.HandleErrorIfNullFindObject<GameFlowManager, EnemyController>(m_GameFlowManager, this);
 
             // Subscribe to damage & death actions
             m_Health.OnDie += OnDie;
