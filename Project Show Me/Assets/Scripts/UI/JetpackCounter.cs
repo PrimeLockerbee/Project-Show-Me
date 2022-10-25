@@ -21,7 +21,6 @@ namespace Unity.FPS.UI
         void Awake()
         {
             m_Jetpack = FindObjectOfType<Jetpack>();
-            DebugUtility.HandleErrorIfNullFindObject<Jetpack, JetpackCounter>(m_Jetpack, this);
 
             FillBarColorChange.Initialize(1f, 0f);
         }
