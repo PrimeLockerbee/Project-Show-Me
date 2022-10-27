@@ -254,12 +254,6 @@ namespace Unity.FPS.Gameplay
                     Debug.Log("ENEMY BULLET HIT PLAYER");
                     playerData.i_gotHitTotal++;
                     Debug.Log("Total hits: " + playerData.i_gotHitTotal);
-
-                    if (timeSlowHit.canSlowTime == true)
-                    {
-                        timeSlowHit.SlowTime();
-                        timeSlowHit.canSlowTime = false;
-                    }
                 }
             }
 
