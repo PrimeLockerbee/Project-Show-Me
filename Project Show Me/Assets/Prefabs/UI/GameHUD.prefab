@@ -2154,6 +2154,7 @@ GameObject:
   - component: {fileID: 4692738559174620312}
   - component: {fileID: 1845787234550258351}
   - component: {fileID: 1610334969856411743}
+  - component: {fileID: 382150719308110195}
   m_Layer: 5
   m_Name: GameHUD
   m_TagString: Untagged
@@ -2335,6 +2336,23 @@ MonoBehaviour:
   DisplayMessageRect: {fileID: 9119402869326549703}
   MessagePrefab: {fileID: 876710413839154128, guid: dbfc7742a2f49bf42a9a012e4ec4b773,
     type: 3}
+--- !u!114 &382150719308110195
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5413294659218134590}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c22a23858baf1448ab847f1aa71433a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletDetection: {fileID: 0}
+  preHitIndicationImages:
+  - {fileID: 8512759123071934901}
+  - {fileID: 8940218876657366090}
+  - {fileID: 1765351062464301210}
 --- !u!1 &5649045762095678184
 GameObject:
   m_ObjectHideFlags: 0
