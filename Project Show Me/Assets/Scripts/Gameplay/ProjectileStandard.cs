@@ -255,11 +255,11 @@ namespace Unity.FPS.Gameplay
                     playerData.i_gotHitTotal++;
                     Debug.Log("Total hits: " + playerData.i_gotHitTotal);
 
-                    //if (timeSlowHit.canSlowTime == true)
-                    //{
-                    //    timeSlowHit.SlowTime();
-                    //    timeSlowHit.canSlowTime = false;
-                    //}
+                    if (timeSlowHit.canSlowTime == true)
+                    {
+                        timeSlowHit.SlowTime();
+                        timeSlowHit.canSlowTime = false;
+                    }
                 }
             }
 
