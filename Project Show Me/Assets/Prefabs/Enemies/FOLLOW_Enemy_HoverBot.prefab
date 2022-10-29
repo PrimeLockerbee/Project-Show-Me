@@ -187,7 +187,7 @@ MonoBehaviour:
     Min: 1
     Max: 1.5
   canRotate: 1
-  canPatrol: 0
+  canPatrol: 1
   canFollow: 1
   canAttack: 1
 --- !u!114 &6370966072896210225
