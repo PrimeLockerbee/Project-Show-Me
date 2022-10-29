@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3659995153115176982}
-  - component: {fileID: 8924682559891268397}
+  - component: {fileID: 6750010578796577448}
   - component: {fileID: 8470335966845132672}
   m_Layer: 0
   m_Name: Projectile_Hoverbot
@@ -34,7 +34,7 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &8924682559891268397
+--- !u!114 &6750010578796577448
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -46,23 +46,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: de99b30e1e73fd14e98cc5371da25d12, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Radius: 0.1
+  Radius: 0.01
   Root: {fileID: 3659995153115176982}
   Tip: {fileID: 1135791333161367127}
-  MaxLifeTime: 10
+  MaxLifeTime: 5
   ImpactVfx: {fileID: 7655095426451682942, guid: 4d48b487f11e62940a978c7c0c0cbcb4,
     type: 3}
-  ImpactVfxLifetime: 5
+  ImpactVfxLifetime: 2
   ImpactVfxSpawnOffset: 0.1
   ImpactSfxClip: {fileID: 0}
   HittableLayers:
     serializedVersion: 2
     m_Bits: 4294967295
-  Speed: 10
+  Speed: 7
   GravityDownAcceleration: 0
   TrajectoryCorrectionDistance: 5
   InheritWeaponVelocity: 0
-  Damage: 10
+  Damage: 5
   AreaOfDamage: {fileID: 0}
   RadiusColor: {r: 0, g: 1, b: 1, a: 1}
   playerData: {fileID: 0}
@@ -77,7 +77,7 @@ BoxCollider:
   m_GameObject: {fileID: 3659995153115176983}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.2, y: 0.2, z: 1}
   m_Center: {x: 0, y: 0, z: 0.5}
@@ -121,7 +121,7 @@ AudioSource:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5564024855854763701}
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 243177779269262668, guid: fcc71635aab95ff4fbdf1880bf2afa2f,
     type: 2}
@@ -236,7 +236,7 @@ MonoBehaviour:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5564024855854763701}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 59c3684b22f00604a97bb68037fcf4cd, type: 3}
   m_Name: 

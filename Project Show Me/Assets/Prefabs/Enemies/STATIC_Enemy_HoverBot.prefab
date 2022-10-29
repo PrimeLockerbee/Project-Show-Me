@@ -84,7 +84,7 @@ Transform:
   m_GameObject: {fileID: 2015434656898269652}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 2}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 320366457750808919}
@@ -109,7 +109,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   SelfDestructYHeight: -20
-  PathReachingRadius: 2
+  PathReachingRadius: 0
   OrientationSpeed: 10
   DeathDuration: 0
   SwapToNextWeapon: 0
@@ -154,7 +154,7 @@ MonoBehaviour:
   DeathVfxSpawnPoint: {fileID: 381893446485871685}
   LootPrefab: {fileID: 2529580269645609534, guid: 9973c412032becb4ca116ca08be62edf,
     type: 3}
-  DropRate: 1
+  DropRate: 0.25
   PathReachingRangeColor: {r: 1, g: 0.92156863, b: 0.015686275, a: 1}
   AttackRangeColor: {r: 1, g: 0, b: 0, a: 1}
   DetectionRangeColor: {r: 0, g: 0, b: 1, a: 1}
