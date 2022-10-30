@@ -163,6 +163,9 @@ namespace Unity.FPS.Game
 
         private Queue<Rigidbody> m_PhysicalAmmoPool;
 
+        private Renderer gunRenderer;
+        private bool isPlayer = false;
+
         void Awake()
         {
             m_CurrentAmmo = MaxAmmo;
@@ -194,6 +197,12 @@ namespace Unity.FPS.Game
                     m_PhysicalAmmoPool.Enqueue(shell.GetComponent<Rigidbody>());
                 }
             }
+        }
+
+        void Start()
+        {
+            gunRenderer = transform.GetComponentInChildren<Renderer>();
+            if (gunRenderer != null) isPlayer = true;
         }
 
         public void AddCarriablePhysicalBullets(int count) => m_CarriedPhysicalBullets = Mathf.Max(m_CarriedPhysicalBullets + count, MaxAmmo);
@@ -395,8 +404,20 @@ namespace Unity.FPS.Game
             if (m_CurrentAmmo >= 1f
                 && m_LastTimeShot + DelayBetweenShots < Time.time)
             {
-                HandleShoot();
-                m_CurrentAmmo -= 1f;
+                // There has to be a better way to do this
+                if (isPlayer)
+                {
+                    if (gunRenderer.enabled)
+                    {
+                        HandleShoot();
+                        m_CurrentAmmo -= 1f;
+                    }
+                }
+                else
+                {
+                    HandleShoot();
+                    m_CurrentAmmo -= 1f;
+                }
 
                 return true;
             }

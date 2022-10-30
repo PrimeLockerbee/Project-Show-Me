@@ -8,7 +8,7 @@ namespace Unity.FPS.Gameplay
     [RequireComponent(typeof(CharacterController), typeof(PlayerInputHandler), typeof(AudioSource))]
     public class PlayerCharacterController : MonoBehaviour
     {
-        [Header("References")] [Tooltip("Reference to the main camera used for the player")]
+        [Header("References")] [Tooltip("Reference to the main cameras used for the player")]
         public Camera PlayerCamera;
 
         [Tooltip("Audio source for footsteps, jump, etc...")]
@@ -134,6 +134,10 @@ namespace Unity.FPS.Gameplay
         const float k_JumpGroundingPreventionTime = 0.2f;
         const float k_GroundCheckDistanceInAir = 0.07f;
 
+        //this is jank I know
+        private Renderer[] renderers;
+        private bool isRendering = false;
+
         void Awake()
         {
             ActorsManager actorsManager = FindObjectOfType<ActorsManager>();
@@ -169,6 +173,8 @@ namespace Unity.FPS.Gameplay
             // force the crouch state to false when starting
             SetCrouchingState(false, true);
             UpdateCharacterHeight(true);
+            renderers = PlayerCamera.transform.GetComponentsInChildren<Renderer>();
+            isRendering = true;
         }
 
         void Update()
@@ -292,9 +298,19 @@ namespace Unity.FPS.Gameplay
             // character movement handling
             bool isSprinting = m_InputHandler.GetSprintInputHeld();
             {
+                PlayerCamera.transform.localPosition = new Vector3(0, 1.5f, 0);
+                if (!isRendering)
+                {
+                    foreach (Renderer renderer in renderers) renderer.enabled = true;
+                    isRendering = true;
+                }
+
                 if (isSprinting)
                 {
                     isSprinting = SetCrouchingState(false, false);
+                    PlayerCamera.transform.localPosition = new Vector3(0, 3, -6);
+                    foreach (Renderer renderer in renderers) renderer.enabled = false;
+                    isRendering = false;
                 }
 
                 float speedModifier = isSprinting ? SprintSpeedModifier : 1f;
