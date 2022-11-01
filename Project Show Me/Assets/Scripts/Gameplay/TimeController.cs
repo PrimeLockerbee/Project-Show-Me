@@ -52,9 +52,9 @@ public class TimeController : MonoBehaviour
             }
         }
 
-        Debug.Log(timeSlowCooldown);
-        Debug.Log(canSlowTime);
-        Debug.Log(timeSLowCooldownBool);
+        //Debug.Log(timeSlowCooldown);
+        //Debug.Log(canSlowTime);
+        //Debug.Log(timeSLowCooldownBool);
     }
 
 

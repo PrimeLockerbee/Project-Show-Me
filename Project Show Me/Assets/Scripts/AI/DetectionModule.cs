@@ -19,8 +19,8 @@ namespace Unity.FPS.AI
         [Tooltip("Time before an enemy abandons a known target that it can't see anymore")]
         public float KnownTargetTimeout = 4f;
 
-        [Tooltip("Optional animator for OnShoot animations")]
-        public Animator Animator;
+        //[Tooltip("Optional animator for OnShoot animations")]
+        //public Animator Animator;
 
         public UnityAction onDetectedTarget;
         public UnityAction onLostTarget;
@@ -123,18 +123,18 @@ namespace Unity.FPS.AI
             TimeLastSeenTarget = Time.time;
             KnownDetectedTarget = damageSource;
 
-            if (Animator)
-            {
-                Animator.SetTrigger(k_AnimOnDamagedParameter);
-            }
+            //if (Animator)
+            //{
+            //    Animator.SetTrigger(k_AnimOnDamagedParameter);
+            //}
         }
 
-        public virtual void OnAttack()
-        {
-            if (Animator)
-            {
-                Animator.SetTrigger(k_AnimAttackParameter);
-            }
-        }
+        //public virtual void OnAttack()
+        //{
+        //    if (Animator)
+        //    {
+        //        Animator.SetTrigger(k_AnimAttackParameter);
+        //    }
+        //}
     }
 }

@@ -249,18 +249,6 @@ namespace Unity.FPS.Gameplay
                 {
                     damageable.InflictDamage(Damage, false, m_ProjectileBase.Owner);
                 }
-                if (damageable && m_ProjectileBase.Owner.tag == "Enemy" && this.gameObject.tag == "EnemyBullet")
-                {
-                    Debug.Log("ENEMY BULLET HIT PLAYER");
-                    playerData.i_gotHitTotal++;
-                    Debug.Log("Total hits: " + playerData.i_gotHitTotal);
-
-                    //if (timeSlowHit.canSlowTime == true)
-                    //{
-                    //    timeSlowHit.SlowTime();
-                    //    timeSlowHit.canSlowTime = false;
-                    //}
-                }
             }
 
             // impact vfx
