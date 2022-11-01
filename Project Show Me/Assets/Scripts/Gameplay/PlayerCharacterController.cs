@@ -139,6 +139,7 @@ namespace Unity.FPS.Gameplay
         private Renderer[] renderers;
         private bool isRendering = false;
         public GameObject crosshair;
+        public GameObject playerModel;
 
 
         void Awake()
@@ -146,6 +147,7 @@ namespace Unity.FPS.Gameplay
             ActorsManager actorsManager = FindObjectOfType<ActorsManager>();
             if (actorsManager != null)
                 actorsManager.SetPlayer(gameObject);
+            playerModel.SetActive(false);
         }
 
         void Start()
@@ -307,6 +309,7 @@ namespace Unity.FPS.Gameplay
                     foreach (Renderer renderer in renderers) renderer.enabled = true;
                     isRendering = true;
                     crosshair.SetActive(true);
+                    playerModel.SetActive(false);
                 }
 
                 if (isSprinting)
@@ -316,6 +319,7 @@ namespace Unity.FPS.Gameplay
                     crosshair.SetActive(false);
                     foreach (Renderer renderer in renderers) renderer.enabled = false;
                     isRendering = false;
+                    playerModel.SetActive(true);
                 }
 
                 float speedModifier = isSprinting ? SprintSpeedModifier : 1f;
