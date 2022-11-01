@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.94872946, g: 0.99121004, b: 0.6572248, a: 1}
+  m_IndirectSpecularColor: {r: 0.9506832, g: 0.99365073, b: 0.65869045, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -31301,6 +31301,41 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1928760178471956307, guid: d37e395c8099b4f41a1bd2d9b282abb2,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1928760178471956307, guid: d37e395c8099b4f41a1bd2d9b282abb2,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1928760178471956307, guid: d37e395c8099b4f41a1bd2d9b282abb2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1928760178471956307, guid: d37e395c8099b4f41a1bd2d9b282abb2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2080724095559627176, guid: d37e395c8099b4f41a1bd2d9b282abb2,
+        type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 1762341310}
+    - target: {fileID: 2080724095559627176, guid: d37e395c8099b4f41a1bd2d9b282abb2,
+        type: 3}
+      propertyPath: playerModel
+      value: 
+      objectReference: {fileID: 1762341309}
+    - target: {fileID: 2080724095559627176, guid: d37e395c8099b4f41a1bd2d9b282abb2,
+        type: 3}
+      propertyPath: SprintSpeedModifier
+      value: 0.75
+      objectReference: {fileID: 0}
     - target: {fileID: 3005390611611875670, guid: d37e395c8099b4f41a1bd2d9b282abb2,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -31351,8 +31386,40 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8156092422172647571, guid: d37e395c8099b4f41a1bd2d9b282abb2,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8156092422172647571, guid: d37e395c8099b4f41a1bd2d9b282abb2,
+        type: 3}
+      propertyPath: m_AnchorMin.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8156092422172647571, guid: d37e395c8099b4f41a1bd2d9b282abb2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8156092422172647571, guid: d37e395c8099b4f41a1bd2d9b282abb2,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: d37e395c8099b4f41a1bd2d9b282abb2, type: 3}
+--- !u!1 &1762341309 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8823072578214226410, guid: d37e395c8099b4f41a1bd2d9b282abb2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1762341308}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &1762341310 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3624564214100254980, guid: d37e395c8099b4f41a1bd2d9b282abb2,
+    type: 3}
+  m_PrefabInstance: {fileID: 1762341308}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &1765168351
 GameObject:
   m_ObjectHideFlags: 0
@@ -38067,6 +38134,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: FloralEnemy
       objectReference: {fileID: 0}
+    - target: {fileID: 2168882244597808641, guid: 2588577f2df38174ba81dc9acbee0580,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2588577f2df38174ba81dc9acbee0580, type: 3}
 --- !u!1001 &1887806609674530918
@@ -38080,6 +38152,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: AnglerEnemy
+      objectReference: {fileID: 0}
+    - target: {fileID: 1653876379387882829, guid: 016029faba292bf45a94bc863f0bd2f6,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 2141584087186585591, guid: 016029faba292bf45a94bc863f0bd2f6,
         type: 3}
@@ -38389,6 +38466,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: PlayerCharacter
+      objectReference: {fileID: 0}
+    - target: {fileID: 4321574651219118187, guid: 00f4c7aab580d584f929aafdf973eff7,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 00f4c7aab580d584f929aafdf973eff7, type: 3}
