@@ -2,6 +2,7 @@
 using Unity.FPS.Game;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 namespace Unity.FPS.Gameplay
 {
@@ -40,7 +41,7 @@ namespace Unity.FPS.Gameplay
         public float AccelerationSpeedInAir = 25f;
 
         [Tooltip("Multiplicator for the sprint speed (based on grounded speed)")]
-        public float SprintSpeedModifier = 2f;
+        public float SprintSpeedModifier = 0.25f;
 
         [Tooltip("Height at which the player dies instantly when falling off the map")]
         public float KillHeight = -50f;
@@ -137,6 +138,8 @@ namespace Unity.FPS.Gameplay
         //this is jank I know
         private Renderer[] renderers;
         private bool isRendering = false;
+        public GameObject crosshair;
+
 
         void Awake()
         {
@@ -303,12 +306,14 @@ namespace Unity.FPS.Gameplay
                 {
                     foreach (Renderer renderer in renderers) renderer.enabled = true;
                     isRendering = true;
+                    crosshair.SetActive(true);
                 }
 
                 if (isSprinting)
                 {
                     isSprinting = SetCrouchingState(false, false);
                     PlayerCamera.transform.localPosition = new Vector3(0, 3, -6);
+                    crosshair.SetActive(false);
                     foreach (Renderer renderer in renderers) renderer.enabled = false;
                     isRendering = false;
                 }

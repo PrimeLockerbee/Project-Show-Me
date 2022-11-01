@@ -1396,6 +1396,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2729281213873661534}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &1836603381 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3235725121711991749, guid: c996b53e9f849234393d1e90f68d1679,
+    type: 3}
+  m_PrefabInstance: {fileID: 4008933581619590512}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1916032642
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2169,8 +2175,18 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 814417836257332542, guid: 761cdc9e4e883334cbdcea062d0befa7,
         type: 3}
+      propertyPath: crosshair
+      value: 
+      objectReference: {fileID: 1836603381}
+    - target: {fileID: 814417836257332542, guid: 761cdc9e4e883334cbdcea062d0befa7,
+        type: 3}
       propertyPath: gravityDownForce
       value: 20
+      objectReference: {fileID: 0}
+    - target: {fileID: 814417836257332542, guid: 761cdc9e4e883334cbdcea062d0befa7,
+        type: 3}
+      propertyPath: SprintSpeedModifier
+      value: 0.75
       objectReference: {fileID: 0}
     - target: {fileID: 3122855503829242450, guid: 761cdc9e4e883334cbdcea062d0befa7,
         type: 3}
@@ -2298,6 +2314,8 @@ MonoBehaviour:
   originalFixedDelta: 0
   audioSource: {fileID: 2729281214152228924}
   ForceTimeScale: 0
+  timeSLowCooldownBool: 0
+  timeSlowCooldown: 0
 --- !u!114 &2729281214152228945
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3182,6 +3200,16 @@ PrefabInstance:
         type: 3}
       propertyPath: m_AnchoredPosition.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2655991609596719716, guid: c996b53e9f849234393d1e90f68d1679,
+        type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 3.2262993
+      objectReference: {fileID: 0}
+    - target: {fileID: 2655991609596719716, guid: c996b53e9f849234393d1e90f68d1679,
+        type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 0.0000076293945
       objectReference: {fileID: 0}
     - target: {fileID: 3002272400097355461, guid: c996b53e9f849234393d1e90f68d1679,
         type: 3}
