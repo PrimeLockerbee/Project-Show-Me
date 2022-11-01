@@ -37,6 +37,18 @@ namespace Unity.FPS.AI
         const string k_AnimAlertedParameter = "Alerted";
         const string k_AnimOnDamagedParameter = "OnDamaged";
 
+        [SerializeField]
+        bool canRotate;
+
+        [SerializeField]
+        bool canPatrol;
+
+        [SerializeField]
+        bool canFollow;
+
+        [SerializeField]
+        bool canAttack;
+
         void Start()
         {
             m_EnemyController = GetComponent<EnemyController>();
@@ -50,7 +62,11 @@ namespace Unity.FPS.AI
             m_EnemyController.onDamaged += OnDamaged;
 
             // Start patrolling
-            AiState = AIState.Patrol;
+            if(canPatrol)
+            {
+                AiState = AIState.Patrol;
+            }
+
 
             // adding a audio source to play the movement sound on it
             m_AudioSource = GetComponent<AudioSource>();
@@ -80,19 +96,31 @@ namespace Unity.FPS.AI
             switch (AiState)
             {
                 case AIState.Follow:
-                    // Transition to attack when there is a line of sight to the target
-                    if (m_EnemyController.IsSeeingTarget && m_EnemyController.IsTargetInAttackRange)
+
+                    if(canFollow)
                     {
-                        AiState = AIState.Attack;
-                        m_EnemyController.SetNavDestination(transform.position);
+                        // Transition to attack when there is a line of sight to the target
+                        if (m_EnemyController.IsSeeingTarget && m_EnemyController.IsTargetInAttackRange)
+                        {
+                            AiState = AIState.Attack;
+
+                            m_EnemyController.SetNavDestination(transform.position);
+                        }
                     }
 
                     break;
                 case AIState.Attack:
-                    // Transition to follow when no longer a target in attack range
-                    if (!m_EnemyController.IsTargetInAttackRange)
+
+                    if(canAttack == true)
                     {
-                        AiState = AIState.Follow;
+                        // Transition to follow when no longer a target in attack range
+                        if (!m_EnemyController.IsTargetInAttackRange)
+                        {
+                            if (canFollow == true)
+                            {
+                                AiState = AIState.Follow;
+                            }
+                        }
                     }
 
                     break;
@@ -105,28 +133,43 @@ namespace Unity.FPS.AI
             switch (AiState)
             {
                 case AIState.Patrol:
-                    m_EnemyController.UpdatePathDestination();
-                    m_EnemyController.SetNavDestination(m_EnemyController.GetDestinationOnPath());
-                    break;
-                case AIState.Follow:
-                    m_EnemyController.SetNavDestination(m_EnemyController.KnownDetectedTarget.transform.position);
-                    m_EnemyController.OrientTowards(m_EnemyController.KnownDetectedTarget.transform.position);
-                    m_EnemyController.OrientWeaponsTowards(m_EnemyController.KnownDetectedTarget.transform.position);
-                    break;
-                case AIState.Attack:
-                    if (Vector3.Distance(m_EnemyController.KnownDetectedTarget.transform.position,
-                            m_EnemyController.DetectionModule.DetectionSourcePoint.position)
-                        >= (AttackStopDistanceRatio * m_EnemyController.DetectionModule.AttackRange))
+
+                    if(canPatrol)
                     {
-                        m_EnemyController.SetNavDestination(m_EnemyController.KnownDetectedTarget.transform.position);
-                    }
-                    else
-                    {
-                        m_EnemyController.SetNavDestination(transform.position);
+                        m_EnemyController.UpdatePathDestination();
+                        m_EnemyController.SetNavDestination(m_EnemyController.GetDestinationOnPath());
                     }
 
-                    m_EnemyController.OrientTowards(m_EnemyController.KnownDetectedTarget.transform.position);
-                    m_EnemyController.TryAtack(m_EnemyController.KnownDetectedTarget.transform.position);
+                    break;
+                case AIState.Follow:
+
+                    if(canFollow == true)
+                    {
+                        m_EnemyController.SetNavDestination(m_EnemyController.KnownDetectedTarget.transform.position);
+                        m_EnemyController.OrientTowards(m_EnemyController.KnownDetectedTarget.transform.position);
+                        m_EnemyController.OrientWeaponsTowards(m_EnemyController.KnownDetectedTarget.transform.position);
+                    }
+
+                    break;
+                case AIState.Attack:
+
+                    if(canAttack )
+                    {
+                        if (Vector3.Distance(m_EnemyController.KnownDetectedTarget.transform.position,
+                            m_EnemyController.DetectionModule.DetectionSourcePoint.position)
+                             >= (AttackStopDistanceRatio * m_EnemyController.DetectionModule.AttackRange))
+                        {
+                            m_EnemyController.SetNavDestination(m_EnemyController.KnownDetectedTarget.transform.position);
+                        }
+                        else
+                        {
+                            m_EnemyController.SetNavDestination(transform.position);
+                        }
+
+                        m_EnemyController.OrientTowards(m_EnemyController.KnownDetectedTarget.transform.position);
+                        m_EnemyController.TryAtack(m_EnemyController.KnownDetectedTarget.transform.position);
+                    }
+
                     break;
             }
         }
@@ -138,9 +181,15 @@ namespace Unity.FPS.AI
 
         void OnDetectedTarget()
         {
-            if (AiState == AIState.Patrol)
+            if(canPatrol)
             {
-                AiState = AIState.Follow;
+                if (AiState == AIState.Patrol)
+                {
+                    if (canFollow)
+                    {
+                        AiState = AIState.Follow;
+                    }
+                }
             }
 
             for (int i = 0; i < OnDetectVfx.Length; i++)

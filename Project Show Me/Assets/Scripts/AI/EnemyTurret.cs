@@ -14,7 +14,7 @@ namespace Unity.FPS.AI
 
         public Transform TurretPivot;
         public Transform TurretAimPoint;
-        public Animator Animator;
+        //public Animator Animator;
         public float AimRotationSharpness = 5f;
         public float LookAtRotationSharpness = 2.5f;
         public float DetectionFireDelay = 1f;
@@ -127,7 +127,7 @@ namespace Unity.FPS.AI
                 RandomHitSparks[n].Play();
             }
 
-            Animator.SetTrigger(k_AnimOnDamagedParameter);
+            //Animator.SetTrigger(k_AnimOnDamagedParameter);
         }
 
         void OnDetectedTarget()
@@ -147,7 +147,7 @@ namespace Unity.FPS.AI
                 AudioUtility.CreateSFX(OnDetectSfx, transform.position, AudioUtility.AudioGroups.EnemyDetection, 1f);
             }
 
-            Animator.SetBool(k_AnimIsActiveParameter, true);
+            //Animator.SetBool(k_AnimIsActiveParameter, true);
             m_TimeStartedDetection = Time.time;
         }
 
@@ -163,7 +163,7 @@ namespace Unity.FPS.AI
                 OnDetectVfx[i].Stop();
             }
 
-            Animator.SetBool(k_AnimIsActiveParameter, false);
+            //Animator.SetBool(k_AnimIsActiveParameter, false);
             m_TimeLostDetection = Time.time;
         }
     }

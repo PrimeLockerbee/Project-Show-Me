@@ -30,7 +30,7 @@ namespace Unity.FPS.AI
         public float PathReachingRadius = 2f;
 
         [Tooltip("The speed at which the enemy rotates")]
-        public float OrientationSpeed = 10f;
+        public float OrientationSpeed = 5f;
 
         [Tooltip("Delay after death where the GameObject is destroyed (to allow for animation)")]
         public float DeathDuration = 0f;
@@ -155,7 +155,7 @@ namespace Unity.FPS.AI
             DetectionModule = detectionModules[0];
             DetectionModule.onDetectedTarget += OnDetectedTarget;
             DetectionModule.onLostTarget += OnLostTarget;
-            onAttack += DetectionModule.OnAttack;
+            //onAttack += DetectionModule.OnAttack;
 
             var navigationModules = GetComponentsInChildren<NavigationModule>();
             DebugUtility.HandleWarningIfDuplicateObjects<DetectionModule, EnemyController>(detectionModules.Length,
