@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.9506832, g: 0.99365073, b: 0.65869045, a: 1}
+  m_IndirectSpecularColor: {r: 0.94872946, g: 0.99121004, b: 0.6572248, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -31221,6 +31221,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 381942881659870728, guid: d37e395c8099b4f41a1bd2d9b282abb2,
+        type: 3}
+      propertyPath: MaxHealth
+      value: 200
+      objectReference: {fileID: 0}
     - target: {fileID: 397665296749364675, guid: d37e395c8099b4f41a1bd2d9b282abb2,
         type: 3}
       propertyPath: m_AnchorMax.y
@@ -31241,6 +31246,23 @@ PrefabInstance:
       propertyPath: m_AnchoredPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1407384840363414060, guid: d37e395c8099b4f41a1bd2d9b282abb2,
+        type: 3}
+      propertyPath: StartingWeapons.Array.size
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 1407384840363414060, guid: d37e395c8099b4f41a1bd2d9b282abb2,
+        type: 3}
+      propertyPath: StartingWeapons.Array.data[1]
+      value: 
+      objectReference: {fileID: 8323776800172828795, guid: 3439b4874b7b44e4eb2216314c46b85c,
+        type: 3}
+    - target: {fileID: 1407384840363414060, guid: d37e395c8099b4f41a1bd2d9b282abb2,
+        type: 3}
+      propertyPath: StartingWeapons.Array.data[2]
+      value: 
+      objectReference: {fileID: 8323776800172828795, guid: 31d97e822763d1f4cb769f7e3f7f7333,
+        type: 3}
     - target: {fileID: 1706111365698108564, guid: d37e395c8099b4f41a1bd2d9b282abb2,
         type: 3}
       propertyPath: m_Id
